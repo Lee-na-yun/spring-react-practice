@@ -1,0 +1,11 @@
+{
+    // 기본 포멧팅 설정
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+// 해당 부분이 true 일 경우 저장할 경우 formatting 수행이 됨.
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+}
