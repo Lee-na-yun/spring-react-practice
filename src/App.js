@@ -1,35 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
 import { useState } from 'react';
-import Sub from './Sub';
-
-let a = 10; //변수
-const b = 20; //상수
+import './App.css';
 
 function App() {
-  let c;
-  console.log(1, c);
+  // 다운로드 받음 -> user데이터를 상태로 관리하고 싶음
+  const [users, setUsers] = useState([]);
 
-  const mystyle = {
-    color: 'red',
+  const download = () => {
+    let sample = [
+      { id: 1, name: '홍길동' },
+      { id: 2, name: '임꺽정' },
+      { id: 3, name: '장보고' },
+      { id: 4, name: '이순신' },
+    ];
+
+    // 다운로드 버튼 클릭하면 users에 값 넣기
+    setUsers(sample); // 여기에 sample을 넣을 수 없음
   };
 
-  // let number = 1; // 상태 값 아님
-  const [number, setNumber] = useState(1);
-
-  const add = () => {
-    //number++;
-    setNumber(number + 1); // ++은 자기한테 다시 값을 넣는거라 안됨
-    console.log('add', number);
-  };
-
+  // 랜더링 시점 = 상태값 변경
   return (
     <div>
-      {/* <div style={mystyle}>안녕{a === 10 ? '10입니다.' : '10이 아닙니다.'}</div>
-      <h1 className="box-style">해당태그{b === 20 && '20입니다.'}</h1> */}
-      <h1>숫자 : {number}</h1>
-      <button onClick={add}>더하기</button>
-      <Sub/>
+      <button onClick={download}>다운로드</button>
+      {users.map(users => <h1>{users.id},{users.name}</h1>)}
     </div>
   );
 }
