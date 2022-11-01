@@ -16,9 +16,11 @@ function App() {
 
   const download = () => {
     // 기존 데이터 세팅
-    
-    // 다운로드 버튼 클릭하면 users에 값 넣기
-    setUsers(sample); // 여기에 sample을 넣을 수 없음
+    sample.push({ id: 5, name: '조자룡' });
+    console.log(sample);
+
+    // 바뀐 데이터를 setUsers에 적용하고 싶은데 될까?
+    setUsers(sample);
   };
 
   // 랜더링 시점 = 상태값 변경
