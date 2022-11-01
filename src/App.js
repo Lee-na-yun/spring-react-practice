@@ -16,11 +16,8 @@ function App() {
 
   const download = () => {
     // 기존 데이터 세팅
-    sample.push({ id: 5, name: '조자룡' });
-    console.log(sample);
-
-    // 바뀐 데이터를 setUsers에 적용하고 싶은데 될까?
-    setUsers(sample);
+    const a = sample.concat({ id: 5, name: '조자룡' });
+    setUsers(a);
   };
 
   // 랜더링 시점 = 상태값 변경
