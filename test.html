@@ -1,55 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-      // concat, filter, map, slice, 스프레드(전개) 연산자
-      const a = [1, 2, 3];
-      const b = [...a];
-      console.log('1.======================스프레드 연산자');
-      b.push(4); //기존 배열 값에 추가 하는 것 (b의 데이터 변경)
-      console.log(`a의 값은 : ${a}`); // 1,2,3
-      console.log(`b의 값은 : ${b}`); // 1,2,3,4
 
-      console.log('2.======================concat 추가하기');
-      const a2 = [1, 2, 3];
-      const b2 = a2.concat(4);
-      console.log(`a2의 값은 : ${a2}`); // 1,2,3
-      console.log(`b2의 값은 : ${b2}`); // 1,2,3,4
-      const c2 = [0, ...a, 4]; // concat과 같음
-      console.log(`c2의 값은 : ${c2}`); // 1,2,3,4
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-      console.log('3.======================filter 걸러내기');
-      const a3 = [1, 2, 3];
-      const b3 = a3.filter((n) => {
-        return n != 1;
-      }); // n이 1이 아니면 true
-      console.log(`b3의 값은 : ${b3}`); // 2,3
+<body>
+  <script>
+    // concat, filter, map, slice, 스프레드(전개) 연산자
+    const a = [1, 2, 3];
+    const b = [...a];
+    console.log('1.======================스프레드 연산자');
+    b.push(4); //기존 배열 값에 추가 하는 것 (b의 데이터 변경)
+    console.log(`a의 값은 : ${a}`); // 1,2,3
+    console.log(`b의 값은 : ${b}`); // 1,2,3,4
 
-      console.log('4.======================slice 잘라내기');
-      const a4 = [1, 2, 3];
-      const b4 = a4.slice(0, 2);
-      console.log(`b4의 값은 : ${b4}`); // 1,2
-      const c4 = [...a4.slice(0, 2), 4, ...a4.slice(2, 3)]; // 1,2,4,3
-      console.log(c4);
+    console.log('2.======================concat 추가하기');
+    const a2 = [1, 2, 3];
+    const b2 = a2.concat(4);
+    console.log(`a2의 값은 : ${a2}`); // 1,2,3
+    console.log(`b2의 값은 : ${b2}`); // 1,2,3,4
+    const c2 = [0, ...a, 4]; // concat과 같음
+    console.log(`c2의 값은 : ${c2}`); // 1,2,3,4
 
-      console.log('5.======================map 반복하기');
-      const a5 = [1, 2, 3];
-      /* for (let i = 0; i < a5.length; i++) {
-        console.log(a5[i]);
-      } */
-      /* a5.forEach((n) => {
-        console.log(n);
-      }); */ // n:순회하는 데이터 {}:뿌리기
-      //중괄호를 지우면 자동으로 return문이 되는데, fofEach는 void라서 return이 안됨
+    console.log('3.======================filter 걸러내기');
+    const a3 = [1, 2, 3];
+    const b3 = a3.filter((n) => {
+      return n != 1;
+    }); // n이 1이 아니면 true
+    console.log(`b3의 값은 : ${b3}`); // 2,3
 
-      const b5 = a5.map((n) => n); // const b5 = [...a5]; 와 같음
-      console.log(b5);
-    </script>
-  </body>
+    console.log('4.======================slice 잘라내기');
+    const a4 = [1, 2, 3];
+    const b4 = a4.slice(0, 2);
+    console.log(`b4의 값은 : ${b4}`); // 1,2
+    const c4 = [...a4.slice(0, 2), 4, ...a4.slice(2, 3)]; // 1,2,4,3
+    console.log(c4);
+
+    console.log('5.======================map 반복하기');
+    const a5 = [1, 2, 3];
+    /* for (let i = 0; i < a5.length; i++) {
+      console.log(a5[i]);
+    } */
+    /* a5.forEach((n) => {
+      console.log(n);
+    }); */ // n:순회하는 데이터 {}:뿌리기
+    //중괄호를 지우면 자동으로 return문이 되는데, fofEach는 void라서 return이 안됨
+
+    const b5 = a5.map((n) => n); // const b5 = [...a5]; 와 같음
+    console.log(b5);
+
+    const a6 = { id: 1, name: "홍길동" };
+    //const b6 = { ...a6};
+    const b6 = { ...a6, name: "임꺽정" };
+    console.log(b6);
+    // 여기서 name값만 바꾸고 싶을때
+
+
+    const users = [
+      { id: 1, name: "구태모", phone: "2222" },
+      { id: 2, name: "이대엽", phone: "3333" },
+      { id: 3, name: "오승훈", phone: "4444" }
+    ];
+    // put 요청 받기
+    const updateUserDto = { id: 2, name: "홍길동" };
+
+    // 1. map으로 복제 후 스프레드 연산자로 덮어쓰기
+    // user.id와 updateUserDsto.id가 같은지 비교하고
+    // 같으면 덮어씌우고
+    // 다르면 그냥 user가 출력됨
+    const newUsers = users.map(user => user.id === updateUserDto.id ? { ...user, ...updateUserDto } : user); // const newUser = {...users} 와 같음
+    console.log("newUsers", newUsers);
+
+
+    // id=2의 name 변경하기
+    //users[1].name = updateUserDto.name;
+
+    //console.log(users);
+  </script>
+</body>
+
 </html>
