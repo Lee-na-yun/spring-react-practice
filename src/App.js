@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import './App.css';
 
 // map, filter, concat, spread, slice
@@ -10,10 +10,12 @@ function App() {
 
   const getAddResult = ()=>{
     let sum = 0;
-    list.forEach(i => sum = sum+i);
+    list.forEach(((i) => sum = sum+i));
     console.log("sum 함수 실행됨",sum);
     return sum;
   }
+
+  const addResult = useMemo(()=>getAddResult(), [list]);
 
   return (
     <div>
@@ -22,7 +24,7 @@ function App() {
       <div>
         {list.map(i => <h1>{i}</h1>)}
       </div>
-      <div>{str}: {getAddResult()}</div>
+      <div>{str}: {addResult}</div>
     </div>
   );
 }
