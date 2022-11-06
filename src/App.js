@@ -16,8 +16,7 @@ function App() {
 
   const download = () => {
     // 기존 데이터 세팅
-    const a = sample.concat({ id: 5, name: '조자룡' });
-    setUsers(a);
+    setUsers([...sample, { id: 5, name: '조자룡' }]);
   };
 
   // 랜더링 시점 = 상태값 변경
