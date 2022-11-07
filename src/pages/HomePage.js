@@ -25,7 +25,7 @@ const HomePage = () => {
   return (
     <div>
       <Header />
-      <Home boards={boards} id={1} />
+      <Home boards={boards} setBoards={setBoards} />
       <Footer />
     </div>
   );
