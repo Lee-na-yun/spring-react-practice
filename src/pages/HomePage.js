@@ -9,6 +9,7 @@ const HomePage = () => {
   // http 요청(fetch)
   const [boards, setBoards] = useState([]);
   const [number, setNumber] = useState(0);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     // 다운로드 받았다고 가정
@@ -19,7 +20,9 @@ const HomePage = () => {
     ];
 
     setBoards([...data]);
-    //setNumber([...data]);
+
+    // 데이터세팅
+    setUser({ id: 1, username: 'ssar' });
 
     // 빈배열은 한 번만 실행됨
   }, []);
@@ -32,6 +35,7 @@ const HomePage = () => {
         setBoards={setBoards}
         number={number}
         setNumber={setNumber}
+        user={user}
       />
       <Footer />
     </div>
