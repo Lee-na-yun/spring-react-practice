@@ -1,5 +1,6 @@
 import './App.css';
 import styled from 'styled-components';
+import HomePage from './pages/HomePage';
 
 function App() {
   const Title = styled.h1`
@@ -11,7 +12,9 @@ function App() {
   return (
     <div>
       <Title>안녕</Title>
-      <div>헬로</div>
+      <div>
+        <HomePage />
+      </div>
     </div>
   );
 }
