@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
@@ -10,8 +11,8 @@ function App() {
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/login" element={<LoginPage/>} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login/:id" element={<LoginPage />} />
       </Routes>
       <Footer />
     </div>
