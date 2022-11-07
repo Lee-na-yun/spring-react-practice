@@ -8,6 +8,7 @@ import Home from '../components/home/Home';
 const HomePage = () => {
   // http 요청(fetch)
   const [boards, setBoards] = useState([]);
+  const [number, setNumber] = useState(0);
 
   useEffect(() => {
     // 다운로드 받았다고 가정
@@ -18,6 +19,7 @@ const HomePage = () => {
     ];
 
     setBoards([...data]);
+    //setNumber([...data]);
 
     // 빈배열은 한 번만 실행됨
   }, []);
@@ -25,7 +27,12 @@ const HomePage = () => {
   return (
     <div>
       <Header />
-      <Home boards={boards} setBoards={setBoards} />
+      <Home
+        boards={boards}
+        setBoards={setBoards}
+        number={number}
+        setNumber={setNumber}
+      />
       <Footer />
     </div>
   );
